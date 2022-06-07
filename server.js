@@ -26,3 +26,26 @@ mongoose.connection
 .on('open', () => console.log('Connected to Mongoose'))
 .on('close', () => console.log('Disconnected from Mongoose'))
 .on('error', () => console.log(error))
+
+
+////////////////////////////////////////////////
+// Our Models
+////////////////////////////////////////////////
+// pull schema and model from mongoose with object destructuring
+// this is the equivalent of =>
+// const Schema = mongoose.Schema
+// const mode = mongoose.model
+const { Schema, model } = mongoose;
+
+// make fruits schema
+const fruitsSchema = new Schema({
+  name: String,
+  color: String,
+  readyToEat: Boolean,
+});
+
+// make fruit model
+const Fruit = model("Fruit", fruitsSchema);
+console.log(fruitsSchema)
+console.log(Fruit)
+
